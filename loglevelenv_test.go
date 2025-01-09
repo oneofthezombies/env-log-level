@@ -273,3 +273,87 @@ func TestTargetFooGoLogTargetFooBar(t *testing.T) {
 		t.Fail()
 	}
 }
+
+func TestTargetFooGoLogDebug(t *testing.T) {
+	os.Setenv("GO_LOG", "debug")
+	level, err := loglevelenv.Config().Target("foo").Parse()
+	if err != nil {
+		t.Error(err)
+	}
+	if level != "debug" {
+		t.Fail()
+	}
+}
+
+func TestTargetFooGoLogDebugTargetFooBar(t *testing.T) {
+	os.Setenv("GO_LOG", "debug,foo=bar")
+	level, err := loglevelenv.Config().Target("foo").Parse()
+	if err != nil {
+		t.Error(err)
+	}
+	if level != "bar" {
+		t.Fail()
+	}
+}
+
+func TestDefaultDebug(t *testing.T) {
+	level, err := loglevelenv.Config().Default("debug").Parse()
+	if err != nil {
+		t.Error(err)
+	}
+	if level != "debug" {
+		t.Fail()
+	}
+}
+
+func TestDefaultFoo(t *testing.T) {
+	level, err := loglevelenv.Config().Default("foo").Parse()
+	if err != nil {
+		t.Error(err)
+	}
+	if level != "foo" {
+		t.Fail()
+	}
+}
+
+func TestEnvFoo(t *testing.T) {
+	os.Setenv("foo", "bar")
+	level, err := loglevelenv.Config().Env("foo").Parse()
+	if err != nil {
+		t.Error(err)
+	}
+	if level != "bar" {
+		t.Fail()
+	}
+}
+
+func TestMultipleTarget(t *testing.T) {
+	os.Setenv("GO_LOG", "debug,foo=error,bar=warn")
+	{
+		level, err := loglevelenv.Parse()
+		if err != nil {
+			t.Error(err)
+		}
+		if level != "debug" {
+			t.Fail()
+		}
+	}
+	{
+		level, err := loglevelenv.Config().Target("foo").Parse()
+		if err != nil {
+			t.Error(err)
+		}
+		if level != "error" {
+			t.Fail()
+		}
+	}
+	{
+		level, err := loglevelenv.Config().Target("bar").Parse()
+		if err != nil {
+			t.Error(err)
+		}
+		if level != "warn" {
+			t.Fail()
+		}
+	}
+}
