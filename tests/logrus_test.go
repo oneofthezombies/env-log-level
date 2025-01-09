@@ -8,7 +8,9 @@ import (
 )
 
 func TestIntegration(t *testing.T) {
-	// LOG_LEVEL=debug,foo=debug
+	// LOG_LEVEL=debug,foo=debug,bar=debug
+	// LOG_LEVEL=foo=debug,bar=info
+	// LOG_LEVEL=info
 	// log.SetLevel(log.DebugLevel)
 	info, ok := debug.ReadBuildInfo()
 	moduleName := ""

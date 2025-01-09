@@ -1,4 +1,4 @@
-module github.com/oneofthezombies/log-env-filter
+module github.com/oneofthezombies/logenv
 
 go 1.23.4
 
