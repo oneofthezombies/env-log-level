@@ -13,7 +13,7 @@ type LogLevelEnvConfig struct {
 
 func Config() *LogLevelEnvConfig {
 	return &LogLevelEnvConfig{
-		envKey:       "GO_LOG",
+		envKey:       "LOG_LEVEL",
 		defaultValue: "info",
 		target:       "",
 	}

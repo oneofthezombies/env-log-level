@@ -7,8 +7,8 @@ import (
 	"github.com/oneofthezombies/loglevelenv"
 )
 
-func TestNoTargetGoLogNotExist(t *testing.T) {
-	_, ok := os.LookupEnv("GO_LOG")
+func TestNoTargetLogLevelNotExist(t *testing.T) {
+	_, ok := os.LookupEnv("LOGLEVEL")
 	if ok {
 		t.Fail()
 	}
@@ -21,8 +21,8 @@ func TestNoTargetGoLogNotExist(t *testing.T) {
 	}
 }
 
-func TestNoTargetGoLogEmpty(t *testing.T) {
-	os.Setenv("GO_LOG", "")
+func TestNoTargetLogLevelEmpty(t *testing.T) {
+	os.Setenv("LOGLEVEL", "")
 	level, err := loglevelenv.Parse()
 	if err != nil {
 		t.Error(err)
@@ -32,8 +32,8 @@ func TestNoTargetGoLogEmpty(t *testing.T) {
 	}
 }
 
-func TestNoTargetGoLogDebug(t *testing.T) {
-	os.Setenv("GO_LOG", "debug")
+func TestNoTargetLogLevelDebug(t *testing.T) {
+	os.Setenv("LOGLEVEL", "debug")
 	level, err := loglevelenv.Parse()
 	if err != nil {
 		t.Error(err)
@@ -43,8 +43,8 @@ func TestNoTargetGoLogDebug(t *testing.T) {
 	}
 }
 
-func TestNoTargetGoLogInfo(t *testing.T) {
-	os.Setenv("GO_LOG", "info")
+func TestNoTargetLogLevelInfo(t *testing.T) {
+	os.Setenv("LOGLEVEL", "info")
 	level, err := loglevelenv.Parse()
 	if err != nil {
 		t.Error(err)
@@ -54,8 +54,8 @@ func TestNoTargetGoLogInfo(t *testing.T) {
 	}
 }
 
-func TestNoTargetGoLogWarn(t *testing.T) {
-	os.Setenv("GO_LOG", "warn")
+func TestNoTargetLogLevelWarn(t *testing.T) {
+	os.Setenv("LOGLEVEL", "warn")
 	level, err := loglevelenv.Parse()
 	if err != nil {
 		t.Error(err)
@@ -65,8 +65,8 @@ func TestNoTargetGoLogWarn(t *testing.T) {
 	}
 }
 
-func TestNoTargetGoLogError(t *testing.T) {
-	os.Setenv("GO_LOG", "error")
+func TestNoTargetLogLevelError(t *testing.T) {
+	os.Setenv("LOGLEVEL", "error")
 	level, err := loglevelenv.Parse()
 	if err != nil {
 		t.Error(err)
@@ -76,8 +76,8 @@ func TestNoTargetGoLogError(t *testing.T) {
 	}
 }
 
-func TestNoTargetGoLogDebugUpper(t *testing.T) {
-	os.Setenv("GO_LOG", "DEBUG")
+func TestNoTargetLogLevelDebugUpper(t *testing.T) {
+	os.Setenv("LOGLEVEL", "DEBUG")
 	level, err := loglevelenv.Parse()
 	if err != nil {
 		t.Error(err)
@@ -87,8 +87,8 @@ func TestNoTargetGoLogDebugUpper(t *testing.T) {
 	}
 }
 
-func TestNoTargetGoLogInfoUpper(t *testing.T) {
-	os.Setenv("GO_LOG", "INFO")
+func TestNoTargetLogLevelInfoUpper(t *testing.T) {
+	os.Setenv("LOGLEVEL", "INFO")
 	level, err := loglevelenv.Parse()
 	if err != nil {
 		t.Error(err)
@@ -98,8 +98,8 @@ func TestNoTargetGoLogInfoUpper(t *testing.T) {
 	}
 }
 
-func TestNoTargetGoLogWarnUpper(t *testing.T) {
-	os.Setenv("GO_LOG", "WARN")
+func TestNoTargetLogLevelWarnUpper(t *testing.T) {
+	os.Setenv("LOGLEVEL", "WARN")
 	level, err := loglevelenv.Parse()
 	if err != nil {
 		t.Error(err)
@@ -109,8 +109,8 @@ func TestNoTargetGoLogWarnUpper(t *testing.T) {
 	}
 }
 
-func TestNoTargetGoLogErrorUpper(t *testing.T) {
-	os.Setenv("GO_LOG", "ERROR")
+func TestNoTargetLogLevelErrorUpper(t *testing.T) {
+	os.Setenv("LOGLEVEL", "ERROR")
 	level, err := loglevelenv.Parse()
 	if err != nil {
 		t.Error(err)
@@ -120,8 +120,8 @@ func TestNoTargetGoLogErrorUpper(t *testing.T) {
 	}
 }
 
-func TestNoTargetGoLogFoo(t *testing.T) {
-	os.Setenv("GO_LOG", "foo")
+func TestNoTargetLogLevelFoo(t *testing.T) {
+	os.Setenv("LOGLEVEL", "foo")
 	level, err := loglevelenv.Parse()
 	if err != nil {
 		t.Error(err)
@@ -131,8 +131,8 @@ func TestNoTargetGoLogFoo(t *testing.T) {
 	}
 }
 
-func TestNoTargetGoLogComma(t *testing.T) {
-	os.Setenv("GO_LOG", ",")
+func TestNoTargetLogLevelComma(t *testing.T) {
+	os.Setenv("LOGLEVEL", ",")
 	level, err := loglevelenv.Parse()
 	if err != nil {
 		t.Error(err)
@@ -142,8 +142,8 @@ func TestNoTargetGoLogComma(t *testing.T) {
 	}
 }
 
-func TestNoTargetGoLogEqual(t *testing.T) {
-	os.Setenv("GO_LOG", "=")
+func TestNoTargetLogLevelEqual(t *testing.T) {
+	os.Setenv("LOGLEVEL", "=")
 	level, err := loglevelenv.Parse()
 	if err != nil {
 		t.Error(err)
@@ -153,8 +153,8 @@ func TestNoTargetGoLogEqual(t *testing.T) {
 	}
 }
 
-func TestNoTargetGoLogCommaEqual(t *testing.T) {
-	os.Setenv("GO_LOG", ",=")
+func TestNoTargetLogLevelCommaEqual(t *testing.T) {
+	os.Setenv("LOGLEVEL", ",=")
 	level, err := loglevelenv.Parse()
 	if err != nil {
 		t.Error(err)
@@ -164,8 +164,8 @@ func TestNoTargetGoLogCommaEqual(t *testing.T) {
 	}
 }
 
-func TestNoTargetGoLogFooEmpty(t *testing.T) {
-	os.Setenv("GO_LOG", "foo=")
+func TestNoTargetLogLevelFooEmpty(t *testing.T) {
+	os.Setenv("LOGLEVEL", "foo=")
 	level, err := loglevelenv.Parse()
 	if err != nil {
 		t.Error(err)
@@ -175,8 +175,8 @@ func TestNoTargetGoLogFooEmpty(t *testing.T) {
 	}
 }
 
-func TestNoTargetGoLogTargetFooDebug(t *testing.T) {
-	os.Setenv("GO_LOG", "foo=debug")
+func TestNoTargetLogLevelTargetFooDebug(t *testing.T) {
+	os.Setenv("LOGLEVEL", "foo=debug")
 	level, err := loglevelenv.Parse()
 	if err != nil {
 		t.Error(err)
@@ -186,8 +186,8 @@ func TestNoTargetGoLogTargetFooDebug(t *testing.T) {
 	}
 }
 
-func TestNoTargetGoLogTargetFooEqual(t *testing.T) {
-	os.Setenv("GO_LOG", "foo==")
+func TestNoTargetLogLevelTargetFooEqual(t *testing.T) {
+	os.Setenv("LOGLEVEL", "foo==")
 	level, err := loglevelenv.Parse()
 	if err != nil {
 		t.Error(err)
@@ -197,8 +197,8 @@ func TestNoTargetGoLogTargetFooEqual(t *testing.T) {
 	}
 }
 
-func TestNoTargetGoLogTargetFooComma(t *testing.T) {
-	os.Setenv("GO_LOG", "foo=,")
+func TestNoTargetLogLevelTargetFooComma(t *testing.T) {
+	os.Setenv("LOGLEVEL", "foo=,")
 	level, err := loglevelenv.Parse()
 	if err != nil {
 		t.Error(err)
@@ -208,8 +208,8 @@ func TestNoTargetGoLogTargetFooComma(t *testing.T) {
 	}
 }
 
-func TestNoTargetGoLogTargetFooBar(t *testing.T) {
-	os.Setenv("GO_LOG", "foo=bar")
+func TestNoTargetLogLevelTargetFooBar(t *testing.T) {
+	os.Setenv("LOGLEVEL", "foo=bar")
 	level, err := loglevelenv.Parse()
 	if err != nil {
 		t.Error(err)
@@ -219,8 +219,8 @@ func TestNoTargetGoLogTargetFooBar(t *testing.T) {
 	}
 }
 
-func TestTargetFooGoLogFooEmpty(t *testing.T) {
-	os.Setenv("GO_LOG", "foo=")
+func TestTargetFooLogLevelFooEmpty(t *testing.T) {
+	os.Setenv("LOGLEVEL", "foo=")
 	level, err := loglevelenv.Config().Target("foo").Parse()
 	if err != nil {
 		t.Error(err)
@@ -230,8 +230,8 @@ func TestTargetFooGoLogFooEmpty(t *testing.T) {
 	}
 }
 
-func TestTargetFooGoLogFooDebug(t *testing.T) {
-	os.Setenv("GO_LOG", "foo=debug")
+func TestTargetFooLogLevelFooDebug(t *testing.T) {
+	os.Setenv("LOGLEVEL", "foo=debug")
 	level, err := loglevelenv.Config().Target("foo").Parse()
 	if err != nil {
 		t.Error(err)
@@ -241,8 +241,8 @@ func TestTargetFooGoLogFooDebug(t *testing.T) {
 	}
 }
 
-func TestTargetFooGoLogFooEqual(t *testing.T) {
-	os.Setenv("GO_LOG", "foo==")
+func TestTargetFooLogLevelFooEqual(t *testing.T) {
+	os.Setenv("LOGLEVEL", "foo==")
 	level, err := loglevelenv.Config().Target("foo").Parse()
 	if err != nil {
 		t.Error(err)
@@ -252,8 +252,8 @@ func TestTargetFooGoLogFooEqual(t *testing.T) {
 	}
 }
 
-func TestTargetFooGoLogFooComma(t *testing.T) {
-	os.Setenv("GO_LOG", "foo=,")
+func TestTargetFooLogLevelFooComma(t *testing.T) {
+	os.Setenv("LOGLEVEL", "foo=,")
 	level, err := loglevelenv.Config().Target("foo").Parse()
 	if err != nil {
 		t.Error(err)
@@ -263,8 +263,8 @@ func TestTargetFooGoLogFooComma(t *testing.T) {
 	}
 }
 
-func TestTargetFooGoLogTargetFooBar(t *testing.T) {
-	os.Setenv("GO_LOG", "foo=bar")
+func TestTargetFooLogLevelTargetFooBar(t *testing.T) {
+	os.Setenv("LOGLEVEL", "foo=bar")
 	level, err := loglevelenv.Config().Target("foo").Parse()
 	if err != nil {
 		t.Error(err)
@@ -274,8 +274,8 @@ func TestTargetFooGoLogTargetFooBar(t *testing.T) {
 	}
 }
 
-func TestTargetFooGoLogDebug(t *testing.T) {
-	os.Setenv("GO_LOG", "debug")
+func TestTargetFooLogLevelDebug(t *testing.T) {
+	os.Setenv("LOGLEVEL", "debug")
 	level, err := loglevelenv.Config().Target("foo").Parse()
 	if err != nil {
 		t.Error(err)
@@ -285,8 +285,8 @@ func TestTargetFooGoLogDebug(t *testing.T) {
 	}
 }
 
-func TestTargetFooGoLogDebugTargetFooBar(t *testing.T) {
-	os.Setenv("GO_LOG", "debug,foo=bar")
+func TestTargetFooLogLevelDebugTargetFooBar(t *testing.T) {
+	os.Setenv("LOGLEVEL", "debug,foo=bar")
 	level, err := loglevelenv.Config().Target("foo").Parse()
 	if err != nil {
 		t.Error(err)
@@ -328,7 +328,7 @@ func TestEnvFoo(t *testing.T) {
 }
 
 func TestMultipleTarget(t *testing.T) {
-	os.Setenv("GO_LOG", "debug,foo=error,bar=warn")
+	os.Setenv("LOGLEVEL", "debug,foo=error,bar=warn")
 	{
 		level, err := loglevelenv.Parse()
 		if err != nil {
