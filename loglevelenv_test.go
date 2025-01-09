@@ -8,7 +8,7 @@ import (
 )
 
 func TestNoTargetLogLevelNotExist(t *testing.T) {
-	_, ok := os.LookupEnv("LOGLEVEL")
+	_, ok := os.LookupEnv("LOG_LEVEL")
 	if ok {
 		t.Fail()
 	}
@@ -22,7 +22,7 @@ func TestNoTargetLogLevelNotExist(t *testing.T) {
 }
 
 func TestNoTargetLogLevelEmpty(t *testing.T) {
-	os.Setenv("LOGLEVEL", "")
+	os.Setenv("LOG_LEVEL", "")
 	level, err := loglevelenv.Parse()
 	if err != nil {
 		t.Error(err)
@@ -33,7 +33,7 @@ func TestNoTargetLogLevelEmpty(t *testing.T) {
 }
 
 func TestNoTargetLogLevelDebug(t *testing.T) {
-	os.Setenv("LOGLEVEL", "debug")
+	os.Setenv("LOG_LEVEL", "debug")
 	level, err := loglevelenv.Parse()
 	if err != nil {
 		t.Error(err)
@@ -44,7 +44,7 @@ func TestNoTargetLogLevelDebug(t *testing.T) {
 }
 
 func TestNoTargetLogLevelInfo(t *testing.T) {
-	os.Setenv("LOGLEVEL", "info")
+	os.Setenv("LOG_LEVEL", "info")
 	level, err := loglevelenv.Parse()
 	if err != nil {
 		t.Error(err)
@@ -55,7 +55,7 @@ func TestNoTargetLogLevelInfo(t *testing.T) {
 }
 
 func TestNoTargetLogLevelWarn(t *testing.T) {
-	os.Setenv("LOGLEVEL", "warn")
+	os.Setenv("LOG_LEVEL", "warn")
 	level, err := loglevelenv.Parse()
 	if err != nil {
 		t.Error(err)
@@ -66,7 +66,7 @@ func TestNoTargetLogLevelWarn(t *testing.T) {
 }
 
 func TestNoTargetLogLevelError(t *testing.T) {
-	os.Setenv("LOGLEVEL", "error")
+	os.Setenv("LOG_LEVEL", "error")
 	level, err := loglevelenv.Parse()
 	if err != nil {
 		t.Error(err)
@@ -77,7 +77,7 @@ func TestNoTargetLogLevelError(t *testing.T) {
 }
 
 func TestNoTargetLogLevelDebugUpper(t *testing.T) {
-	os.Setenv("LOGLEVEL", "DEBUG")
+	os.Setenv("LOG_LEVEL", "DEBUG")
 	level, err := loglevelenv.Parse()
 	if err != nil {
 		t.Error(err)
@@ -88,7 +88,7 @@ func TestNoTargetLogLevelDebugUpper(t *testing.T) {
 }
 
 func TestNoTargetLogLevelInfoUpper(t *testing.T) {
-	os.Setenv("LOGLEVEL", "INFO")
+	os.Setenv("LOG_LEVEL", "INFO")
 	level, err := loglevelenv.Parse()
 	if err != nil {
 		t.Error(err)
@@ -99,7 +99,7 @@ func TestNoTargetLogLevelInfoUpper(t *testing.T) {
 }
 
 func TestNoTargetLogLevelWarnUpper(t *testing.T) {
-	os.Setenv("LOGLEVEL", "WARN")
+	os.Setenv("LOG_LEVEL", "WARN")
 	level, err := loglevelenv.Parse()
 	if err != nil {
 		t.Error(err)
@@ -110,7 +110,7 @@ func TestNoTargetLogLevelWarnUpper(t *testing.T) {
 }
 
 func TestNoTargetLogLevelErrorUpper(t *testing.T) {
-	os.Setenv("LOGLEVEL", "ERROR")
+	os.Setenv("LOG_LEVEL", "ERROR")
 	level, err := loglevelenv.Parse()
 	if err != nil {
 		t.Error(err)
@@ -121,7 +121,7 @@ func TestNoTargetLogLevelErrorUpper(t *testing.T) {
 }
 
 func TestNoTargetLogLevelFoo(t *testing.T) {
-	os.Setenv("LOGLEVEL", "foo")
+	os.Setenv("LOG_LEVEL", "foo")
 	level, err := loglevelenv.Parse()
 	if err != nil {
 		t.Error(err)
@@ -132,7 +132,7 @@ func TestNoTargetLogLevelFoo(t *testing.T) {
 }
 
 func TestNoTargetLogLevelComma(t *testing.T) {
-	os.Setenv("LOGLEVEL", ",")
+	os.Setenv("LOG_LEVEL", ",")
 	level, err := loglevelenv.Parse()
 	if err != nil {
 		t.Error(err)
@@ -143,7 +143,7 @@ func TestNoTargetLogLevelComma(t *testing.T) {
 }
 
 func TestNoTargetLogLevelEqual(t *testing.T) {
-	os.Setenv("LOGLEVEL", "=")
+	os.Setenv("LOG_LEVEL", "=")
 	level, err := loglevelenv.Parse()
 	if err != nil {
 		t.Error(err)
@@ -154,7 +154,7 @@ func TestNoTargetLogLevelEqual(t *testing.T) {
 }
 
 func TestNoTargetLogLevelCommaEqual(t *testing.T) {
-	os.Setenv("LOGLEVEL", ",=")
+	os.Setenv("LOG_LEVEL", ",=")
 	level, err := loglevelenv.Parse()
 	if err != nil {
 		t.Error(err)
@@ -165,7 +165,7 @@ func TestNoTargetLogLevelCommaEqual(t *testing.T) {
 }
 
 func TestNoTargetLogLevelFooEmpty(t *testing.T) {
-	os.Setenv("LOGLEVEL", "foo=")
+	os.Setenv("LOG_LEVEL", "foo=")
 	level, err := loglevelenv.Parse()
 	if err != nil {
 		t.Error(err)
@@ -176,7 +176,7 @@ func TestNoTargetLogLevelFooEmpty(t *testing.T) {
 }
 
 func TestNoTargetLogLevelTargetFooDebug(t *testing.T) {
-	os.Setenv("LOGLEVEL", "foo=debug")
+	os.Setenv("LOG_LEVEL", "foo=debug")
 	level, err := loglevelenv.Parse()
 	if err != nil {
 		t.Error(err)
@@ -187,7 +187,7 @@ func TestNoTargetLogLevelTargetFooDebug(t *testing.T) {
 }
 
 func TestNoTargetLogLevelTargetFooEqual(t *testing.T) {
-	os.Setenv("LOGLEVEL", "foo==")
+	os.Setenv("LOG_LEVEL", "foo==")
 	level, err := loglevelenv.Parse()
 	if err != nil {
 		t.Error(err)
@@ -198,7 +198,7 @@ func TestNoTargetLogLevelTargetFooEqual(t *testing.T) {
 }
 
 func TestNoTargetLogLevelTargetFooComma(t *testing.T) {
-	os.Setenv("LOGLEVEL", "foo=,")
+	os.Setenv("LOG_LEVEL", "foo=,")
 	level, err := loglevelenv.Parse()
 	if err != nil {
 		t.Error(err)
@@ -209,7 +209,7 @@ func TestNoTargetLogLevelTargetFooComma(t *testing.T) {
 }
 
 func TestNoTargetLogLevelTargetFooBar(t *testing.T) {
-	os.Setenv("LOGLEVEL", "foo=bar")
+	os.Setenv("LOG_LEVEL", "foo=bar")
 	level, err := loglevelenv.Parse()
 	if err != nil {
 		t.Error(err)
@@ -220,7 +220,7 @@ func TestNoTargetLogLevelTargetFooBar(t *testing.T) {
 }
 
 func TestTargetFooLogLevelFooEmpty(t *testing.T) {
-	os.Setenv("LOGLEVEL", "foo=")
+	os.Setenv("LOG_LEVEL", "foo=")
 	level, err := loglevelenv.Config().Target("foo").Parse()
 	if err != nil {
 		t.Error(err)
@@ -231,7 +231,7 @@ func TestTargetFooLogLevelFooEmpty(t *testing.T) {
 }
 
 func TestTargetFooLogLevelFooDebug(t *testing.T) {
-	os.Setenv("LOGLEVEL", "foo=debug")
+	os.Setenv("LOG_LEVEL", "foo=debug")
 	level, err := loglevelenv.Config().Target("foo").Parse()
 	if err != nil {
 		t.Error(err)
@@ -242,7 +242,7 @@ func TestTargetFooLogLevelFooDebug(t *testing.T) {
 }
 
 func TestTargetFooLogLevelFooEqual(t *testing.T) {
-	os.Setenv("LOGLEVEL", "foo==")
+	os.Setenv("LOG_LEVEL", "foo==")
 	level, err := loglevelenv.Config().Target("foo").Parse()
 	if err != nil {
 		t.Error(err)
@@ -253,7 +253,7 @@ func TestTargetFooLogLevelFooEqual(t *testing.T) {
 }
 
 func TestTargetFooLogLevelFooComma(t *testing.T) {
-	os.Setenv("LOGLEVEL", "foo=,")
+	os.Setenv("LOG_LEVEL", "foo=,")
 	level, err := loglevelenv.Config().Target("foo").Parse()
 	if err != nil {
 		t.Error(err)
@@ -264,7 +264,7 @@ func TestTargetFooLogLevelFooComma(t *testing.T) {
 }
 
 func TestTargetFooLogLevelTargetFooBar(t *testing.T) {
-	os.Setenv("LOGLEVEL", "foo=bar")
+	os.Setenv("LOG_LEVEL", "foo=bar")
 	level, err := loglevelenv.Config().Target("foo").Parse()
 	if err != nil {
 		t.Error(err)
@@ -275,7 +275,7 @@ func TestTargetFooLogLevelTargetFooBar(t *testing.T) {
 }
 
 func TestTargetFooLogLevelDebug(t *testing.T) {
-	os.Setenv("LOGLEVEL", "debug")
+	os.Setenv("LOG_LEVEL", "debug")
 	level, err := loglevelenv.Config().Target("foo").Parse()
 	if err != nil {
 		t.Error(err)
@@ -286,7 +286,7 @@ func TestTargetFooLogLevelDebug(t *testing.T) {
 }
 
 func TestTargetFooLogLevelDebugTargetFooBar(t *testing.T) {
-	os.Setenv("LOGLEVEL", "debug,foo=bar")
+	os.Setenv("LOG_LEVEL", "debug,foo=bar")
 	level, err := loglevelenv.Config().Target("foo").Parse()
 	if err != nil {
 		t.Error(err)
@@ -328,7 +328,7 @@ func TestEnvFoo(t *testing.T) {
 }
 
 func TestMultipleTarget(t *testing.T) {
-	os.Setenv("LOGLEVEL", "debug,foo=error,bar=warn")
+	os.Setenv("LOG_LEVEL", "debug,foo=error,bar=warn")
 	{
 		level, err := loglevelenv.Parse()
 		if err != nil {

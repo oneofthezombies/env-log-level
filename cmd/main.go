@@ -1,12 +1,8 @@
-package logrus_test
+package main
 
-import (
-	"testing"
+import "github.com/oneofthezombies/loglevelenv/logrus"
 
-	"github.com/oneofthezombies/loglevelenv/logrus"
-)
-
-func TestMultipleTarget(t *testing.T) {
+func main() {
 	logrus.MapLevel("")
 	logrus.MapLevel("")
 	logrus.MapLevel("")
