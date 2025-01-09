@@ -1,4 +1,4 @@
-module github.com/oneofthezombies/logenv
+module github.com/oneofthezombies/loglevelenv
 
 go 1.23.4
 
